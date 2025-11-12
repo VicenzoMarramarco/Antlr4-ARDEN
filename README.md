@@ -29,17 +29,17 @@ python main.py exemplo1.mlm
 
 - If you prefer not to change execution policy, call the venv Python executable directly (no activation required):
 ```powershell
-C:/Users/vicen/Desktop/antlr/.venv/Scripts/python.exe main.py exemplo1.mlm
-C:/Users/vicen/Desktop/antlr/.venv/Scripts/python.exe main.py exemplo2.mlm
-C:/Users/vicen/Desktop/antlr/.venv/Scripts/python.exe main.py exemplo3.mlm
+C:/Users/vicen/Desktop/antlr4-ARDEN/.venv/Scripts/python.exe main.py exemplo1.mlm
+C:/Users/vicen/Desktop/antlr4-ARDEN/.venv/Scripts/python.exe main.py exemplo2.mlm
+C:/Users/vicen/Desktop/antlr4-ARDEN/.venv/Scripts/python.exe main.py exemplo3.mlm
 ```
 
 Run all examples in one line (PowerShell):
 ```powershell
-C:/Users/vicen/Desktop/antlr/.venv/Scripts/python.exe .\main.py .\exemplo1.mlm
-C:/Users/vicen/Desktop/antlr/.venv/Scripts/python.exe .\main.py .\exemplo2.mlm
-C:/Users/vicen/Desktop/antlr/.venv/Scripts/python.exe .\main.py .\exemplo3.mlm
-C:/Users/vicen/Desktop/antlr/.venv/Scripts/python.exe .\main.py .\exemplo4.mlm
+C:/Users/vicen/Desktop/antlr4-ARDEN/.venv/Scripts/python.exe .\main.py .\exemplo1.mlm
+C:/Users/vicen/Desktop/antlr4-ARDEN/.venv/Scripts/python.exe .\main.py .\exemplo2.mlm
+C:/Users/vicen/Desktop/antlr4-ARDEN/.venv/Scripts/python.exe .\main.py .\exemplo3.mlm
+C:/Users/vicen/Desktop/antlr4-ARDEN/.venv/Scripts/python.exe .\main.py .\exemplo4.mlm
 ```
 
 - Or on Windows `cmd.exe` you can activate with `activate.bat`:
