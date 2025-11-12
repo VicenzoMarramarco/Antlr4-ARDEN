@@ -1,0 +1,3 @@
+data: glucose, age;
+logic: glucose + age > 250 && glucose < 300;
+action: recommend_test, alert;

@@ -1,0 +1,3 @@
+data: glucose, age;
+logic: glucose > 200;
+action: alert;

@@ -1,0 +1,3 @@
+data: age, glucose;
+logic: age < 18;
+action: notify_guardian;

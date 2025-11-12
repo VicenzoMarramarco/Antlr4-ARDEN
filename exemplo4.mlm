@@ -1,0 +1,3 @@
+data: glucose, age;
+logic: glucose > 100;
+action: log_metrics, alert;

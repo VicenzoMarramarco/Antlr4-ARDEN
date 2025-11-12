@@ -1,0 +1,11 @@
+{
+  "java.import.exclusions": [
+    "**/.antlr/**"
+  ],
+  "files.watcherExclude": {
+    "**/.antlr/**": true
+  },
+  "search.exclude": {
+    "**/.antlr/**": true
+  }
+}
