@@ -26,6 +26,8 @@ class ArdenExecutor(ArdenVisitor):
             'recommend_test': lambda: print("ACTION: Recommend further testing"),
             'log_metrics': self._action_log_metrics
         }
+        # simple metrics for demonstration of an extra semantic action
+        self.metrics = { 'arithmetic_ops': 0 }
 
     def execute(self, moduleCtx):
         # Process data block
@@ -37,6 +39,8 @@ class ArdenExecutor(ArdenVisitor):
             self._process_actions(moduleCtx.actionBlock())
         else:
             print("No action executed: logic conditions evaluated to False")
+        # Extra semantic action result: print a tiny summary
+        print(f"Execution summary: arithmetic_ops={self.metrics['arithmetic_ops']}")
 
     def _process_data(self, ctx):
         # dataBlock: 'data:' statementList ';'
@@ -145,6 +149,8 @@ class ArdenExecutor(ArdenVisitor):
                 if op in ('+', '-', '*', '/', '%'):
                     res_val = eval(f"{lval} {op} {rval}")
                     print(f"Rule {'AddSub' if op in ('+','-') else 'MulDiv'}: {lval} {op} {rval} -> {res_val}")
+                    # extra semantic action: count arithmetic operations
+                    self.metrics['arithmetic_ops'] = self.metrics.get('arithmetic_ops', 0) + 1
                     return (res_val, 'VAL')
             except Exception as e:
                 print(f"Error evaluating {lval} {op} {rval}: {e}")
@@ -158,6 +164,16 @@ class ArdenExecutor(ArdenVisitor):
 
 
 def run_file(path):
+    # Show input text content (requirement a)
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        print("\n=== Input Text ===")
+        print(content.rstrip('\n'))
+        print("=== End Input ===\n")
+    except Exception as e:
+        print(f"Could not read input file '{path}': {e}")
+
     input_stream = FileStream(path)
     lexer = ArdenLexer(input_stream)
     stream = CommonTokenStream(lexer)

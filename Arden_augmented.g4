@@ -26,7 +26,7 @@ statementList: statement (',' statement)*;
 statement: expr; // could carry action or expression
 
 expr: expr op=('*' | '/' | '%') expr        # MulDiv
-    | expr op=('+' | '-') expr              # AddSub
+    | expr op=('+' | '-') expr              { print("[SEMANTIC ACTION] AddSub fired (Python target)") } # AddSub
     | expr op=('>' | '<' | '>=' | '<=') expr # Comparison
     | expr op=('==' | '!=') expr            # Equality
     | expr op='&&' expr                     # And
@@ -40,10 +40,9 @@ expr: expr op=('*' | '/' | '%') expr        # MulDiv
 // Example of added semantic action: logging every operation
 // Implemented in visitor (Python): main.py -> ArdenExecutor._eval_expr prints:
 // - Rule And/Or/Not, Rule AddSub/MulDiv, Rule Comparison/Equality, Rule Parens, and ID resolution.
-// Example embedded action (illustrative only, commented to keep grammar buildable):
-//    | expr op=('+' | '-') expr              # AddSub
-//      { print("[SEMANTIC ACTION] Add/Sub fired") }
-// If targeting Python, adapt content accordingly; keep commented unless generating with that target.
+// In addition, above we embedded a real inline action for AddSub that would print
+// a message when the '+' or '-' alternative is reduced (Python target). This is
+// illustrative to show where grammar-level actions can live.
 
 ID: [a-zA-Z_][a-zA-Z_0-9]*;
 INT: [0-9]+;

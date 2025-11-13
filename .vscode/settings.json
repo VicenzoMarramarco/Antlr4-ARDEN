@@ -2,6 +2,12 @@
   "java.import.exclusions": [
     "**/.antlr/**"
   ],
+  "java.project.excludePaths": [
+    "**/.antlr/**"
+  ],
+  "files.exclude": {
+    "**/.antlr": true
+  },
   "files.watcherExclude": {
     "**/.antlr/**": true
   },
